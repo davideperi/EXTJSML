@@ -80,7 +80,37 @@ Ext.define('MultiLanguage.view.main.Main', {
         iconCls: 'fa-home',
         // The following grid shares a store with the classic version's grid as well!
         items: [{
-            xtype: 'mainlist'
+            //xtype: 'mainlist'
+			xtype:'container',
+			layout: {
+			    type: 'vbox',
+			    align : 'stretch',
+			    pack  : 'start',
+			},
+			items:[{
+				margin:5,
+                xtype: 'combobox',
+                fieldLabel: 'Language',
+			    store: new Ext.data.ArrayStore({
+					id: 0,
+					fields: [
+						'id',  // numeric value is the key
+						'lang'
+					],
+					data:[['it', 'ITA'], ['en', 'ENG']]  // data is local
+				}),
+			    queryMode: 'local',
+			    displayField: 'lang',
+			    valueField: 'id',
+                listeners:{
+                    change:function(thisObj,newValue,oldValue,eOpts){
+                        console.log(newValue);
+                    }
+                }
+			},{
+				html:'Down',
+				xtype: 'mainlist'
+			}]
         }]
     }, {
         title: 'Users',
