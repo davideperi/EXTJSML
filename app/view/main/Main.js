@@ -85,7 +85,7 @@ Ext.define('MultiLanguage.view.main.Main', {
 			layout: {
 			    type: 'vbox',
 			    align : 'stretch',
-			    pack  : 'start',
+			    pack  : 'start'
 			},
 			items:[{
 				margin:5,
@@ -94,7 +94,7 @@ Ext.define('MultiLanguage.view.main.Main', {
 			    store: new Ext.data.ArrayStore({
 					id: 0,
 					fields: [
-						'id',  // numeric value is the key
+						'id',
 						'lang'
 					],
 					data:[['it', 'ITA'], ['en', 'ENG']]  // data is local
