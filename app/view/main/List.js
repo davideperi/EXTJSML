@@ -19,8 +19,10 @@ Ext.define('MultiLanguage.view.main.List', {
 		/* Original configuration disable because return an error */
         /*
 		{ text: MultiLanguage.Locale.grid.List.column.name,  dataIndex: 'name' },
+		{ text: MultiLanguage.Locale.column.name ,  dataIndex: 'name' }, // works
+		
 		*/
-		{ text: 'Name',  dataIndex: 'name' },
+		{ text: MultiLanguage.grid.List.column.name ,  dataIndex: 'name' },
         { text: 'Email', dataIndex: 'email', flex: 1 },
         { text: 'Phone', dataIndex: 'phone', flex: 1 }
     ],
