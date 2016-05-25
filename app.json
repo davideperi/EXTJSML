@@ -35,7 +35,8 @@
     "overrides": [
         "overrides",
         "${toolkit.name}/overrides",
-		"${app.dir}/locale/MultiLanguage-${app.locale}.js"
+		/*"${app.dir}/Locale"*/
+		"${app.dir}/Locale/MultiLanguage-${app.locale}.js"
     ],
 
     /**
@@ -72,7 +73,15 @@
 		"ext-locale"
     ],
 
-	"locale": "es",
+	/* "locale": "es", */
+	
+	/*
+	"locales": [
+	    "en",
+	    "es",
+		"it"
+	],
+	*/
 
     /**
      * Fashion build configuration properties.
@@ -556,7 +565,25 @@
      *     }
      *
      */
-    
+
+	"builds": {
+		"classic-es": {
+			"toolkit": "classic",
+			"theme": "theme-triton",
+			"locale" : "es"
+		},
+		"classic-it": {
+			"toolkit": "classic",
+			"theme": "theme-triton",
+			"locale" : "it"
+		},
+		"classic-en": {
+			"toolkit": "classic",
+			"theme": "theme-triton",
+			"locale" : "en"
+		}
+	},
+
 
     /**
      * Uniquely generated id for this application, used as prefix for localStorage keys.

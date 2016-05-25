@@ -21,6 +21,9 @@ Ext.define('MultiLanguage.view.main.Main', {
     controller: 'main',
     viewModel: 'main',
 
+    /*plugins: 'viewport',*/
+
+
     ui: 'navigation',
 
     tabBarHeaderPosition: 1,
@@ -92,7 +95,6 @@ Ext.define('MultiLanguage.view.main.Main', {
                 xtype: 'combobox',
                 fieldLabel: 'Language',
 			    store: new Ext.data.ArrayStore({
-					id: 0,
 					fields: [
 						'id',
 						'lang'
@@ -105,6 +107,13 @@ Ext.define('MultiLanguage.view.main.Main', {
                 listeners:{
                     change:function(thisObj,newValue,oldValue,eOpts){
                         console.log(newValue);
+
+						var search = location.search,
+						index = search.indexOf('&'),
+						params = Ext.urlEncode({'lang': newValue });
+						location.search = (index === -1) ? params : params + search.substr(index);
+						
+
                     }
                 }
 			},{
@@ -112,23 +121,5 @@ Ext.define('MultiLanguage.view.main.Main', {
 				xtype: 'mainlist'
 			}]
         }]
-    }, {
-        title: 'Users',
-        iconCls: 'fa-user',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }, {
-        title: 'Groups',
-        iconCls: 'fa-users',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }, {
-        title: 'Settings',
-        iconCls: 'fa-cog',
-        bind: {
-            html: '{loremIpsum}'
-        }
     }]
 });

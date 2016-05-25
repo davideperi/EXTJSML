@@ -7,6 +7,15 @@
 
     <title>MultiLanguage</title>
 
+	<script type="text/javascript">
+	    var Ext = Ext || {};
+	    Ext.beforeLoad = function (tags) {
+	        var locale = location.href.match(/locale=([\w-]+)/);
+	        locale = (locale && locale[1]) || 'en';
+			Ext.manifest = "classic-" + locale;
+	    };
+	</script>
+
     <!--
     <script type="text/javascript">
         var Ext = Ext || {}; // Ext namespace won't be defined yet...
