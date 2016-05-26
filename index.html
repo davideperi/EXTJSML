@@ -11,6 +11,9 @@
 	    var Ext = Ext || {};
 	    Ext.beforeLoad = function (tags) {
 	        var locale = location.href.match(/locale=([\w-]+)/);
+			if( locale === null){
+				var locale = location.href.match(/lang=([\w-]+)/);
+			}
 	        locale = (locale && locale[1]) || 'en';
 			Ext.manifest = "classic-" + locale;
 	    };

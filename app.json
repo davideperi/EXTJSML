@@ -35,8 +35,9 @@
     "overrides": [
         "overrides",
         "${toolkit.name}/overrides",
+		"${app.dir}/locale/${app.locale}"
 		/*"${app.dir}/Locale"*/
-		"${app.dir}/Locale/MultiLanguage-${app.locale}.js"
+		/*"${app.dir}/Locale/MultiLanguage-${app.locale}.js"*/
     ],
 
     /**
@@ -75,13 +76,12 @@
 
 	/* "locale": "es", */
 	
-	/*
+
 	"locales": [
 	    "en",
 	    "es",
 		"it"
 	],
-	*/
 
     /**
      * Fashion build configuration properties.
@@ -233,6 +233,9 @@
      *
      */
     "js": [
+	    {
+	        "path": "${framework.dir}/build/ext-all-rtl-debug.js"
+	    },
         {
             "path": "app.js",
             "bundle": true
@@ -242,6 +245,7 @@
     /**
      * Settings specific to classic toolkit builds.
      */
+	/*
     "classic": {
         "js": [
             // Remove this entry to individually load sources from the framework.
@@ -250,11 +254,13 @@
             }
         ]
     },
+	*/
 
     /**
      * Settings specific to modern toolkit builds.
      */
-    "modern": {
+    /*
+	"modern": {
         "js": [
             // Remove this entry to individually load sources from the framework.
             {
@@ -262,6 +268,7 @@
             }
         ]
     },
+	*/
 
     /**
      * List of all CSS assets in the right inclusion order.
@@ -326,7 +333,8 @@
     "production": {
         "output": {
             "appCache": {
-                "enable": true,
+                /* "enable": true, */
+				enable: false,
                 "path": "cache.appcache"
             }
         },
@@ -334,7 +342,8 @@
             "cache": "${build.timestamp}"
         },
         "cache": {
-            "enable": true
+            /* "enable": true */
+			enable: false
         },
         "compressor": {
             "type": "yui"
@@ -389,7 +398,8 @@
      */
     "bootstrap": {
         "base": "${app.dir}",
-        
+
+		"manifest": "${build.id}.json",
         "microloader": "bootstrap.js",
         "css": "bootstrap.css"
     },
@@ -439,6 +449,17 @@
         "base": "${workspace.build.dir}/${build.environment}/${app.name}",
         "appCache": {
             "enable": false
+        },
+		"js": "${build.id}.js",
+        "microloader": {
+              "path": "${build.id}-microloader.js",
+          "embed": true,
+          "enable": true
+        },
+        "manifest": {
+          "path": "${build.id}.json",
+          "embed": false,
+          "enable": "${app.output.microloader.enable}"
         }
     },
     
@@ -567,6 +588,7 @@
      */
 
 	"builds": {
+		/*
 		"classic-es": {
 			"toolkit": "classic",
 			"theme": "theme-triton",
@@ -582,6 +604,11 @@
 			"theme": "theme-triton",
 			"locale" : "en"
 		}
+		*/
+		"classic": {
+            "toolkit": "classic",
+            "theme": "theme-triton"
+        }
 	},
 
 
