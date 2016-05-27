@@ -99,7 +99,7 @@ Ext.define('MultiLanguage.view.main.Main', {
 						'id',
 						'lang'
 					],
-					data:[['it', 'ITA'], ['en', 'ENG']]  // data is local
+					data:[['it', 'Italiano'], ['en', 'English'],['es', 'Español']]  // data is local
 				}),
 			    queryMode: 'local',
 			    displayField: 'lang',
