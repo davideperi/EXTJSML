@@ -79,7 +79,7 @@ Ext.define('MultiLanguage.view.main.Main', {
     },
 
     items: [{
-        title: 'Home',
+        title: MultiLanguage.Panel.title.home,
         iconCls: 'fa-home',
         // The following grid shares a store with the classic version's grid as well!
         items: [{
